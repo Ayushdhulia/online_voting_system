@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Kill PHP Server",
+            "type": "shell",
+            "command": "taskkill /F /IM php.exe /T",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "continueOnError": true
+        },
+        {
+            "label": "Start PHP Server",
+            "type": "shell",
+            "command": "C:\\xampp\\php\\php.exe -S localhost:8000 -t .",
+            "isBackground": true,
+            "dependsOn": "Kill PHP Server",
+            "problemMatcher": {
+                "owner": "php",
+                "pattern": {
+                    "regexp": "^.*$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Development Server.*$",
+                    "endsPattern": "^.*Press Ctrl-C to quit.*$"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ]
+}

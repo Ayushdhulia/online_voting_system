@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --secondary: #10b981;
+    --secondary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --accent: #f59e0b;
+    --danger: #ef4444;
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --text: #111827;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(230,100%,95%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(260,100%,95%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(330,100%,95%,1) 0, transparent 50%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: -0.025em;
+}
+
+p.subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+}
+
+/* Tabs Styling */
+.tabs {
+    display: flex;
+    margin-bottom: 32px;
+    background: #f1f5f9;
+    padding: 6px;
+    border-radius: 16px;
+    gap: 4px;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-light);
+}
+
+.tab.active {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.tab:not(.active):hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Forms Styling */
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-left: 4px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s;
+    color: var(--text);
+}
+
+input:focus {
+    outline: none;
+    background: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+    margin-top: 8px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3);
+    filter: brightness(1.05);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.toggle-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.toggle-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.toggle-link a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Utility Animations */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Specific button colors */
+.btn-admin {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 15px -3px rgba(30, 41, 59, 0.3);
+}
+
+.btn-admin:hover {
+    box-shadow: 0 20px 25px -5px rgba(30, 41, 59, 0.3);
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+}
